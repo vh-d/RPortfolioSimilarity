@@ -1,4 +1,4 @@
-RPortfolioSimilarity - R package
+RPortfolioSimilarity
 ====================
 R Package for analysis of banking sector portfolios similarity and clustering.
 
