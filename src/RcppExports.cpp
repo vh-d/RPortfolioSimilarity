@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // resample_matrix
 NumericMatrix resample_matrix(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP portfolio_similarity_resample_matrix(SEXP original_matSEXP, SEXP max_iterSEXP) {
+RcppExport SEXP RPortfolioSimilarity_resample_matrix(SEXP original_matSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -23,7 +23,7 @@ END_RCPP
 }
 // resample_matrix_conv
 NumericMatrix resample_matrix_conv(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP portfolio_similarity_resample_matrix_conv(SEXP original_matSEXP, SEXP max_iterSEXP) {
+RcppExport SEXP RPortfolioSimilarity_resample_matrix_conv(SEXP original_matSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -39,7 +39,7 @@ END_RCPP
 }
 // cosine_similarity
 double cosine_similarity(NumericVector a, NumericVector b);
-RcppExport SEXP portfolio_similarity_cosine_similarity(SEXP aSEXP, SEXP bSEXP) {
+RcppExport SEXP RPortfolioSimilarity_cosine_similarity(SEXP aSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -55,7 +55,7 @@ END_RCPP
 }
 // similarity_matrix
 NumericMatrix similarity_matrix(NumericMatrix input_mat);
-RcppExport SEXP portfolio_similarity_similarity_matrix(SEXP input_matSEXP) {
+RcppExport SEXP RPortfolioSimilarity_similarity_matrix(SEXP input_matSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {

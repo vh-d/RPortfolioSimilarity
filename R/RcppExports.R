@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 resample_matrix <- function(original_mat, max_iter) {
-    .Call('portfolio_similarity_resample_matrix', PACKAGE = 'portfolio_similarity', original_mat, max_iter)
+    .Call('RPortfolioSimilarity_resample_matrix', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
 resample_matrix_conv <- function(original_mat, max_iter) {
-    .Call('portfolio_similarity_resample_matrix_conv', PACKAGE = 'portfolio_similarity', original_mat, max_iter)
+    .Call('RPortfolioSimilarity_resample_matrix_conv', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
 cosine_similarity <- function(a, b) {
-    .Call('portfolio_similarity_cosine_similarity', PACKAGE = 'portfolio_similarity', a, b)
+    .Call('RPortfolioSimilarity_cosine_similarity', PACKAGE = 'RPortfolioSimilarity', a, b)
 }
 
 similarity_matrix <- function(input_mat) {
-    .Call('portfolio_similarity_similarity_matrix', PACKAGE = 'portfolio_similarity', input_mat)
+    .Call('RPortfolioSimilarity_similarity_matrix', PACKAGE = 'RPortfolioSimilarity', input_mat)
 }
 

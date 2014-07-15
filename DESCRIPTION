@@ -1,10 +1,10 @@
-Package: portfolio_similarity
+Package: RPortfolioSimilarity
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: R function for portfolio similarity analysis
+Version: 0.1
 Date: 2014-07-15
-Author: Václav Hausenblas
-Maintainer: Václav Hausenblas <vencahaus@seznam.cz>
+Author: Vaclav Hausenblas
+Maintainer: Vaclav Hausenblas <vencahaus@seznam.cz>
 Description: Usefull function for simulating banks' porfolios and measuring their similarity
 License: MIT
 Imports: Rcpp (>= 0.11.0)
