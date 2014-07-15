@@ -1,0 +1,3 @@
+useDynLib(portfolio_smilarity)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
