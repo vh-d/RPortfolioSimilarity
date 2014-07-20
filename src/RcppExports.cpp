@@ -5,22 +5,6 @@
 
 using namespace Rcpp;
 
-// resample_matrix
-NumericMatrix resample_matrix(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP RPortfolioSimilarity_resample_matrix(SEXP original_matSEXP, SEXP max_iterSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP );
-        Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP );
-        NumericMatrix __result = resample_matrix(original_mat, max_iter);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // resample_matrix_conv
 NumericMatrix resample_matrix_conv(NumericMatrix original_mat, long int max_iter);
 RcppExport SEXP RPortfolioSimilarity_resample_matrix_conv(SEXP original_matSEXP, SEXP max_iterSEXP) {
@@ -37,31 +21,31 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// cosine_similarity
-double cosine_similarity(NumericVector a, NumericVector b);
-RcppExport SEXP RPortfolioSimilarity_cosine_similarity(SEXP aSEXP, SEXP bSEXP) {
+// cosSimilarity
+double cosSimilarity(NumericVector a, NumericVector b);
+RcppExport SEXP RPortfolioSimilarity_cosSimilarity(SEXP aSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP );
         Rcpp::traits::input_parameter< NumericVector >::type b(bSEXP );
-        double __result = cosine_similarity(a, b);
+        double __result = cosSimilarity(a, b);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
     return __sexp_result;
 END_RCPP
 }
-// similarity_matrix
-NumericMatrix similarity_matrix(NumericMatrix input_mat);
-RcppExport SEXP RPortfolioSimilarity_similarity_matrix(SEXP input_matSEXP) {
+// matCosSimilarity
+NumericMatrix matCosSimilarity(NumericMatrix input_mat);
+RcppExport SEXP RPortfolioSimilarity_matCosSimilarity(SEXP input_matSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< NumericMatrix >::type input_mat(input_matSEXP );
-        NumericMatrix __result = similarity_matrix(input_mat);
+        NumericMatrix __result = matCosSimilarity(input_mat);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
