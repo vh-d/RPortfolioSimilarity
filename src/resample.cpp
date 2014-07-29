@@ -84,7 +84,11 @@ NumericVector colSumsC(NumericMatrix x) {
 //  return new_mat;
 //}
 
-
+//' Generate random variation of a matrix keeping rows and cols sums
+//'
+//'@param original_mat the original matrix that will be replicated
+//'@param max_iter maximum number of iterations when coverging to the rows and cols sums
+//'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 // [[Rcpp::export]]
 NumericMatrix randMatrix(NumericMatrix original_mat, long int max_iter) {
 
