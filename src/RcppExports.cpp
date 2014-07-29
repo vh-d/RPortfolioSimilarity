@@ -5,16 +5,16 @@
 
 using namespace Rcpp;
 
-// resample_matrix_conv
-NumericMatrix resample_matrix_conv(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP RPortfolioSimilarity_resample_matrix_conv(SEXP original_matSEXP, SEXP max_iterSEXP) {
+// randMatrix
+NumericMatrix randMatrix(NumericMatrix original_mat, long int max_iter);
+RcppExport SEXP RPortfolioSimilarity_randMatrix(SEXP original_matSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP );
         Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP );
-        NumericMatrix __result = resample_matrix_conv(original_mat, max_iter);
+        NumericMatrix __result = randMatrix(original_mat, max_iter);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

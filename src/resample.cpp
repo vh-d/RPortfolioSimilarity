@@ -1,7 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-NumericVector rowsums(NumericMatrix x) {
+NumericVector rowSumsC(NumericMatrix x) {
   int nrow = x.nrow(); 
   int ncol = x.ncol();
   
@@ -17,7 +17,7 @@ NumericVector rowsums(NumericMatrix x) {
   return out;
 }
 
-NumericVector colsums(NumericMatrix x) {
+NumericVector colSumsC(NumericMatrix x) {
   int nrow = x.nrow(); 
   int ncol = x.ncol();
   
@@ -42,8 +42,8 @@ NumericVector colsums(NumericMatrix x) {
 //  int ncol = original_mat.ncol();
 //  
 //  // get rows and column sums - constraints of the new matrix
-//  NumericVector rows_sums_orig = rowsums(original_mat);
-//  NumericVector col_sums_orig = colsums(original_mat);
+//  NumericVector rows_sums_orig = rowSumsC(original_mat);
+//  NumericVector col_sums_orig = colSumsC(original_mat);
 //  
 //  // create the new matrix with the dimensions of the original matrix 
 //  NumericMatrix new_mat(nrow, ncol);
@@ -70,7 +70,7 @@ NumericVector colsums(NumericMatrix x) {
 //      new_mat(_, j) = new_mat(_, j) * sum_ratio; // scale the new column to have the same sum as the original 
 //      
 //      // calculate the rows sums and the last column as residual
-//      rows_sums_new = rowsums(new_mat);
+//      rows_sums_new = rowSumsC(new_mat);
 //      resid = rows_sums_orig - rows_sums_new;
 //    }
 //
@@ -84,16 +84,17 @@ NumericVector colsums(NumericMatrix x) {
 //  return new_mat;
 //}
 
+
 // [[Rcpp::export]]
-NumericMatrix resample_matrix_conv(NumericMatrix original_mat, long int max_iter) {
+NumericMatrix randMatrix(NumericMatrix original_mat, long int max_iter) {
 
   // get dimensions of the original matrix
   long int nrow = original_mat.nrow();
   long int ncol = original_mat.ncol();
   
   // get rows and column sums - constraints of the new matrix
-  NumericVector rows_sums_orig = rowsums(original_mat);
-  NumericVector cols_sums_orig = colsums(original_mat);
+  NumericVector rows_sums_orig = rowSumsC(original_mat);
+  NumericVector cols_sums_orig = colSumsC(original_mat);
   
   NumericVector rows_sums_new(nrow);
   NumericVector cols_sums_new(ncol);
@@ -110,25 +111,24 @@ NumericMatrix resample_matrix_conv(NumericMatrix original_mat, long int max_iter
   
   // fill the new matrix by random numbers from uniform distribution
   for (int i = 0; i < nrow; ++i) {
-    runif(ncol);
-    new_mat(i, _) = runif(ncol); // fill the i-th row
+    new_mat(i, _) = runif(ncol); // fill the i-th row, draw from uniform distribution
     
     rowsum = sum(new_mat(i, _));
     sum_ratio = rows_sums_orig[i] / rowsum; // calculate the ratio of row sums from the original and the new matrix
     new_mat(i, _) = new_mat(i, _) * sum_ratio; // scale the new row to have the same sum as the original 
   }
   
-//   cycle untill maximum number of trials is reached or the new matrix is found
+  // iterate until maximum number of trials is reached or ...?
   do {
     trial++; // increase number of trials
     
-    cols_sums_new = colsums(new_mat);
+    cols_sums_new = colSumsC(new_mat);
     icol = which_max(abs(cols_sums_new - cols_sums_orig));
-    new_mat(_, icol) = new_mat(_, icol) + ((cols_sums_orig[icol] - cols_sums_new[icol]) / nrow);
+    new_mat(_, icol) = new_mat(_, icol) * (cols_sums_orig[icol] / cols_sums_new[icol]);
     
-    rows_sums_new = rowsums(new_mat);
+    rows_sums_new = rowSumsC(new_mat);
     irow = which_max(abs(rows_sums_new - rows_sums_orig));
-    new_mat(irow, _) = new_mat(irow, _) + ((rows_sums_orig[irow] - rows_sums_new[irow]) / ncol);
+    new_mat(irow, _) = new_mat(irow, _) * (rows_sums_orig[irow] / rows_sums_new[irow]);
     
   } while (trial < max_iter);
   
