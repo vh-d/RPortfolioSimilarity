@@ -6,8 +6,12 @@
 #'@param original_mat the original matrix that will be replicated
 #'@param max_iter maximum number of iterations when coverging to the rows and cols sums
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
-randMatrix <- function(original_mat, max_iter) {
-    .Call('RPortfolioSimilarity_randMatrix', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
+randMatrixUnif <- function(original_mat, max_iter) {
+    .Call('RPortfolioSimilarity_randMatrixUnif', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
+}
+
+randMatrixLNorm <- function(original_mat, max_iter) {
+    .Call('RPortfolioSimilarity_randMatrixLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
 #' Compute cosine similarity of two numeric vectors
@@ -15,15 +19,15 @@ randMatrix <- function(original_mat, max_iter) {
 #'@param a numeric vector
 #'@param b numeric vector
 #'@return Numeric value of cosine similarity
-cosSimilarity <- function(a, b) {
-    .Call('RPortfolioSimilarity_cosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
+vCosSimilarity <- function(a, b) {
+    .Call('RPortfolioSimilarity_vCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
 }
 
 #' Compute cosine similarity for every pair of rows from given matrix
 #'
 #'@param input_mat numeric input matrix
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
-matCosSimilarity <- function(input_mat) {
-    .Call('RPortfolioSimilarity_matCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
+mCosSimilarity <- function(input_mat) {
+    .Call('RPortfolioSimilarity_mCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
 }
 

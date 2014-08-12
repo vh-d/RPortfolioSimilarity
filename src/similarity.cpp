@@ -7,7 +7,7 @@ using namespace Rcpp;
 //'@param b numeric vector
 //'@return Numeric value of cosine similarity
 // [[Rcpp::export]]
-double cosSimilarity(NumericVector a, NumericVector b) {
+double vCosSimilarity(NumericVector a, NumericVector b) {
   double sA, sB, sI;
 
   sA = sum(a*a);
@@ -21,14 +21,14 @@ double cosSimilarity(NumericVector a, NumericVector b) {
 //'@param input_mat numeric input matrix
 //'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 // [[Rcpp::export]]
-NumericMatrix matCosSimilarity(NumericMatrix input_mat) {
+NumericMatrix mCosSimilarity(NumericMatrix input_mat) {
   int n_row = input_mat.nrow();
   
   NumericMatrix new_mat(n_row, n_row);
 
   for (int i = 0; i < n_row; ++i) {
     for (int j = i + 1; j < n_row; ++j) {
-        new_mat(i, j) = cosSimilarity(input_mat(i, _), input_mat(j, _));
+        new_mat(i, j) = vCosSimilarity(input_mat(i, _), input_mat(j, _));
     }    
   }
   
