@@ -1,3 +1,15 @@
+#' Mean of the upper triangle of given numerical matrix
+#'
+#' \code{upperTMean} computes (weighted) mean on the upper triangle of given numerical matrix.
+#' @param inmat a (n x k) numerical matrix of portfolios where rows represent n subjects and columns their portfolios
+upperTMean <- function(inmat, weights = NULL){
+  if (is.null(weights)) {
+    return(mean(inmat[upper.tri(inmat)]))
+  } else {
+    return(weighted.mean(inmat[upper.tri(inmat)], weights[upper.tri(weights)]))
+  }
+}
+
 #' Aggregate similarity of banking porfolios.
 #'
 #' \code{aggSimilarity} computes aggregate similarity of banks' portfolios.
@@ -8,12 +20,12 @@
 #' @seealso \code{\link{aggSimilarity_time}}
 aggSimilarity <- function(porftolios, weights = NULL){
   if (is.null(weights)) {
-    tmpm <- matCosSimilarity(porftolios)
-    return(mean(tmpm[upper.tri(tmpm)]))
+    tmpm <- mCosSimilarity(porftolios)
+    return(upperTMean(tmpm))
   } else {
     if (dim(weights) == dim(porftolios)[c(1, 1)]) {
-      tmpm <-matCosSimilarity(porftolios)
-      return(weighted.mean(tmpm[upper.tri(tmpm)], weights[upper.tri(weights)]))
+      tmpm <- mCosSimilarity(porftolios)
+      return(upperTMean(tmpm))
     } else {
       stop("Weights and portfolios matrices dimensions differ.")
     }
