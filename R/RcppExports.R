@@ -41,3 +41,12 @@ mCosSimilarity <- function(input_mat) {
     .Call('RPortfolioSimilarity_mCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
 }
 
+#' Compute weighted cosine similarities for each pair of rows from given matrix and given weights
+#'
+#'@param input_mat numeric input matrix
+#'@param weights numeric vector of weights
+#'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
+wtMCosSimilarity <- function(input_mat, weights) {
+    .Call('RPortfolioSimilarity_wtMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
+}
+
