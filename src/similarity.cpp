@@ -16,6 +16,22 @@ double vCosSimilarity(NumericVector a, NumericVector b) {
   return (sI/sqrt(sA * sB));
 }
 
+//' Compute weighted cosine similarity of two numeric vectors
+//'
+//'@param a numeric vector
+//'@param b numeric vector
+//'@param w numeric vector of weights
+//'@return Numeric value of cosine similarity
+// [[Rcpp::export]]
+double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w) {
+  double sA, sB, sI;
+
+  sA = sum(w*a*a);
+  sB = sum(w*b*b);
+  sI = sum(w*a*b);
+  return (sI/sqrt(sA * sB));
+}
+
 //' Compute cosine similarity for every pair of rows from given matrix
 //'
 //'@param input_mat numeric input matrix

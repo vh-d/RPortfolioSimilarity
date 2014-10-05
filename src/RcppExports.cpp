@@ -53,6 +53,23 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// wtVCosSimilarity
+double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w);
+RcppExport SEXP RPortfolioSimilarity_wtVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP wSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type b(bSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type w(wSEXP );
+        double __result = wtVCosSimilarity(a, b, w);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // mCosSimilarity
 NumericMatrix mCosSimilarity(NumericMatrix input_mat);
 RcppExport SEXP RPortfolioSimilarity_mCosSimilarity(SEXP input_matSEXP) {

@@ -23,6 +23,16 @@ vCosSimilarity <- function(a, b) {
     .Call('RPortfolioSimilarity_vCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
 }
 
+#' Compute weighted cosine similarity of two numeric vectors
+#'
+#'@param a numeric vector
+#'@param b numeric vector
+#'@param w numeric vector of weights
+#'@return Numeric value of cosine similarity
+wtVCosSimilarity <- function(a, b, w) {
+    .Call('RPortfolioSimilarity_wtVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, w)
+}
+
 #' Compute cosine similarity for every pair of rows from given matrix
 #'
 #'@param input_mat numeric input matrix
