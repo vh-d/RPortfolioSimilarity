@@ -140,7 +140,7 @@ NumericMatrix randMatrixUnif(NumericMatrix original_mat, long int max_iter) {
 }
 
 // [[Rcpp::export]]
-NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter) {
+NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter, double meanl = 0, double sdl = 1) {
 
   // get dimensions of the original matrix
   long int nrow = original_mat.nrow();
@@ -165,7 +165,7 @@ NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter) {
   
   // fill the new matrix by random numbers from uniform distribution
   for (int i = 0; i < nrow; ++i) {
-    new_mat(i, _) = rlnorm(ncol); // fill the i-th row, draw from uniform distribution
+    new_mat(i, _) = rlnorm(ncol,  meanl, sdl); // fill the i-th row, draw from uniform distribution
     
     rowsum = sum(new_mat(i, _));
     sum_ratio = rows_sums_orig[i] / rowsum; // calculate the ratio of row sums from the original and the new matrix

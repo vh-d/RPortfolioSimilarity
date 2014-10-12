@@ -22,15 +22,17 @@ BEGIN_RCPP
 END_RCPP
 }
 // randMatrixLNorm
-NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP RPortfolioSimilarity_randMatrixLNorm(SEXP original_matSEXP, SEXP max_iterSEXP) {
+NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter, double meanl = 0, double sdl = 1);
+RcppExport SEXP RPortfolioSimilarity_randMatrixLNorm(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP meanlSEXP, SEXP sdlSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP );
         Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP );
-        NumericMatrix __result = randMatrixLNorm(original_mat, max_iter);
+        Rcpp::traits::input_parameter< double >::type meanl(meanlSEXP );
+        Rcpp::traits::input_parameter< double >::type sdl(sdlSEXP );
+        NumericMatrix __result = randMatrixLNorm(original_mat, max_iter, meanl, sdl);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
