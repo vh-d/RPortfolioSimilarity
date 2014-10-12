@@ -3,10 +3,12 @@
 \alias{aggSimilarity}
 \title{Aggregate similarity of banking porfolios.}
 \usage{
-aggSimilarity(porftolios, weights = NULL)
+aggSimilarity(porftolios, weights = NULL, rw = NULL)
 }
 \arguments{
-\item{weights}{a (n x n) matrix of weights}
+\item{weights}{a (n x n) matrix of weights for weghting matrix to an average}
+
+\item{rw}{(1 x k) vector of weights on sectors}
 
 \item{portfolios}{a (n x k) matrix of portfolios where rows represent n subjects and columns their portfolios}
 }

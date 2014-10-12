@@ -10,8 +10,8 @@ randMatrixUnif <- function(original_mat, max_iter) {
     .Call('RPortfolioSimilarity_randMatrixUnif', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
-randMatrixLNorm <- function(original_mat, max_iter) {
-    .Call('RPortfolioSimilarity_randMatrixLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
+randMatrixLNorm <- function(original_mat, max_iter, meanl = 0, sdl = 1) {
+    .Call('RPortfolioSimilarity_randMatrixLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, meanl, sdl)
 }
 
 #' Compute cosine similarity of two numeric vectors

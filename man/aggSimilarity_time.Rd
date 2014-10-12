@@ -3,10 +3,12 @@
 \alias{aggSimilarity_time}
 \title{Aggregate similarities of banking porfolios on a list}
 \usage{
-aggSimilarity_time(portfolios_list)
+aggSimilarity_time(portfolios_list, ...)
 }
 \arguments{
 \item{portfolios_list}{a list of portfolio matrices where rows represent n subjects and columns their portfolios}
+
+\item{...}{other archments past to \code{\link{aggSimilarity}}}
 }
 \value{
 a numeric vector.
