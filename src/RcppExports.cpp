@@ -39,6 +39,24 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// randMatrixGamma
+NumericMatrix randMatrixGamma(NumericMatrix original_mat, long int max_iter, double shape, double rate = 1);
+RcppExport SEXP RPortfolioSimilarity_randMatrixGamma(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP );
+        Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP );
+        Rcpp::traits::input_parameter< double >::type shape(shapeSEXP );
+        Rcpp::traits::input_parameter< double >::type rate(rateSEXP );
+        NumericMatrix __result = randMatrixGamma(original_mat, max_iter, shape, rate);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // vCosSimilarity
 double vCosSimilarity(NumericVector a, NumericVector b);
 RcppExport SEXP RPortfolioSimilarity_vCosSimilarity(SEXP aSEXP, SEXP bSEXP) {

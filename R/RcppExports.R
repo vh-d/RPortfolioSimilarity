@@ -10,8 +10,26 @@ randMatrixUnif <- function(original_mat, max_iter) {
     .Call('RPortfolioSimilarity_randMatrixUnif', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
+#' Generate random variation of a matrix keeping rows and cols sums
+#'
+#'@param original_mat the original matrix that will be replicated
+#'@param max_iter maximum number of iterations when coverging to the rows and cols sums
+#'@param meanl parameter of the log-normal distribution
+#'@param sdl parameter of the log-normal distribution
+#'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 randMatrixLNorm <- function(original_mat, max_iter, meanl = 0, sdl = 1) {
     .Call('RPortfolioSimilarity_randMatrixLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, meanl, sdl)
+}
+
+#' Generate random variation of a matrix keeping rows and cols sums
+#'
+#'@param original_mat the original matrix that will be replicated
+#'@param max_iter maximum number of iterations when coverging to the rows and cols sums
+#'@param shape parameter of the log-normal distribution
+#'@param rate parameter of the log-normal distribution
+#'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
+randMatrixGamma <- function(original_mat, max_iter, shape, rate = 1) {
+    .Call('RPortfolioSimilarity_randMatrixGamma', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, shape, rate)
 }
 
 #' Compute cosine similarity of two numeric vectors
