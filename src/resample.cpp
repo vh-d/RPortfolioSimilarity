@@ -200,8 +200,8 @@ NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter, dou
 //'
 //'@param original_mat the original matrix that will be replicated
 //'@param max_iter maximum number of iterations when coverging to the rows and cols sums
-//'@param shape parameter of the log-normal distribution
-//'@param rate parameter of the log-normal distribution
+//'@param shape parameter of the gamma distribution
+//'@param rate parameter of the gamma distribution
 //'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 // [[Rcpp::export]]
 NumericMatrix randMatrixGamma(NumericMatrix original_mat, long int max_iter, double shape, double rate = 1) {

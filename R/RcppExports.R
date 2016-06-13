@@ -25,8 +25,8 @@ randMatrixLNorm <- function(original_mat, max_iter, meanl = 0, sdl = 1) {
 #'
 #'@param original_mat the original matrix that will be replicated
 #'@param max_iter maximum number of iterations when coverging to the rows and cols sums
-#'@param shape parameter of the log-normal distribution
-#'@param rate parameter of the log-normal distribution
+#'@param shape parameter of the gamma distribution
+#'@param rate parameter of the gamma distribution
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 randMatrixGamma <- function(original_mat, max_iter, shape, rate = 1) {
     .Call('RPortfolioSimilarity_randMatrixGamma', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, shape, rate)
