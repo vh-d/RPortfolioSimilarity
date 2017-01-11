@@ -4,12 +4,17 @@
 \alias{aggSimilarity}
 \title{Aggregate similarity of banking porfolios.}
 \usage{
-aggSimilarity(porftolios, weights = NULL, rw = NULL)
+aggSimilarity(porftolios, simM = NULL, weights = NULL, rw = NULL,
+  arc = FALSE)
 }
 \arguments{
+\item{simM}{an optional (n x n) similarity matrix}
+
 \item{weights}{a (n x n) matrix of weights for weghting matrix to an average}
 
 \item{rw}{(1 x k) vector of weights on sectors}
+
+\item{arc}{logical; should the cosine similarities be transformed to radians (by arccos) first?}
 
 \item{portfolios}{a (n x k) matrix of portfolios where rows represent n subjects and columns their portfolios}
 }
@@ -20,7 +25,7 @@ a numeric value of (weighted) mean similarity.
 \code{aggSimilarity} computes aggregate similarity of banks' portfolios.
 }
 \details{
-This is an R version of the function.
+This is an R version of the function. Using \code{arc=TRUE} returns (weighted) mean of 1-(2*arccos(cos(similarity))/pi)
 }
 \seealso{
 \code{\link{aggSimilarity_time}}
