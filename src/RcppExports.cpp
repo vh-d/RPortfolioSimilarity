@@ -5,21 +5,21 @@
 
 using namespace Rcpp;
 
-// randMatrixUnif
-NumericMatrix randMatrixUnif(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP RPortfolioSimilarity_randMatrixUnif(SEXP original_matSEXP, SEXP max_iterSEXP) {
+// restRandMatUnif
+NumericMatrix restRandMatUnif(NumericMatrix original_mat, long int max_iter);
+RcppExport SEXP RPortfolioSimilarity_restRandMatUnif(SEXP original_matSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP);
     Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP);
-    rcpp_result_gen = Rcpp::wrap(randMatrixUnif(original_mat, max_iter));
+    rcpp_result_gen = Rcpp::wrap(restRandMatUnif(original_mat, max_iter));
     return rcpp_result_gen;
 END_RCPP
 }
-// randMatrixLNorm
-NumericMatrix randMatrixLNorm(NumericMatrix original_mat, long int max_iter, double meanl, double sdl);
-RcppExport SEXP RPortfolioSimilarity_randMatrixLNorm(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP meanlSEXP, SEXP sdlSEXP) {
+// restRandMatLNorm
+NumericMatrix restRandMatLNorm(NumericMatrix original_mat, long int max_iter, double meanl, double sdl);
+RcppExport SEXP RPortfolioSimilarity_restRandMatLNorm(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP meanlSEXP, SEXP sdlSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -27,13 +27,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP);
     Rcpp::traits::input_parameter< double >::type meanl(meanlSEXP);
     Rcpp::traits::input_parameter< double >::type sdl(sdlSEXP);
-    rcpp_result_gen = Rcpp::wrap(randMatrixLNorm(original_mat, max_iter, meanl, sdl));
+    rcpp_result_gen = Rcpp::wrap(restRandMatLNorm(original_mat, max_iter, meanl, sdl));
     return rcpp_result_gen;
 END_RCPP
 }
-// randMatrixGamma
-NumericMatrix randMatrixGamma(NumericMatrix original_mat, long int max_iter, double shape, double rate);
-RcppExport SEXP RPortfolioSimilarity_randMatrixGamma(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+// restRandMatGamma
+NumericMatrix restRandMatGamma(NumericMatrix original_mat, long int max_iter, double shape, double rate);
+RcppExport SEXP RPortfolioSimilarity_restRandMatGamma(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -41,7 +41,22 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP);
     Rcpp::traits::input_parameter< double >::type shape(shapeSEXP);
     Rcpp::traits::input_parameter< double >::type rate(rateSEXP);
-    rcpp_result_gen = Rcpp::wrap(randMatrixGamma(original_mat, max_iter, shape, rate));
+    rcpp_result_gen = Rcpp::wrap(restRandMatGamma(original_mat, max_iter, shape, rate));
+    return rcpp_result_gen;
+END_RCPP
+}
+// restRandMat
+NumericMatrix restRandMat(NumericMatrix original_mat, long int max_iter, int type, double par1, double par2);
+RcppExport SEXP RPortfolioSimilarity_restRandMat(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP typeSEXP, SEXP par1SEXP, SEXP par2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type original_mat(original_matSEXP);
+    Rcpp::traits::input_parameter< long int >::type max_iter(max_iterSEXP);
+    Rcpp::traits::input_parameter< int >::type type(typeSEXP);
+    Rcpp::traits::input_parameter< double >::type par1(par1SEXP);
+    Rcpp::traits::input_parameter< double >::type par2(par2SEXP);
+    rcpp_result_gen = Rcpp::wrap(restRandMat(original_mat, max_iter, type, par1, par2));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -70,6 +85,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// sftVCosSimilarity
+double sftVCosSimilarity(NumericVector a, NumericVector b, NumericMatrix weights);
+RcppExport SEXP RPortfolioSimilarity_sftVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP weightsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type b(bSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type weights(weightsSEXP);
+    rcpp_result_gen = Rcpp::wrap(sftVCosSimilarity(a, b, weights));
+    return rcpp_result_gen;
+END_RCPP
+}
 // mCosSimilarity
 NumericMatrix mCosSimilarity(NumericMatrix input_mat);
 RcppExport SEXP RPortfolioSimilarity_mCosSimilarity(SEXP input_matSEXP) {
@@ -90,6 +118,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericMatrix >::type input_mat(input_matSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type weights(weightsSEXP);
     rcpp_result_gen = Rcpp::wrap(wtMCosSimilarity(input_mat, weights));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sftMCosSimilarity
+NumericMatrix sftMCosSimilarity(NumericMatrix input_mat, NumericMatrix weights);
+RcppExport SEXP RPortfolioSimilarity_sftMCosSimilarity(SEXP input_matSEXP, SEXP weightsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type input_mat(input_matSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type weights(weightsSEXP);
+    rcpp_result_gen = Rcpp::wrap(sftMCosSimilarity(input_mat, weights));
     return rcpp_result_gen;
 END_RCPP
 }

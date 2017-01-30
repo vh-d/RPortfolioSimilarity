@@ -74,3 +74,62 @@ arcCosSimilarity <- function(input_mat) {
   return(1-arcCosDist(mCosSimilarity(input_mat)))
 }
 
+fromUpperTri <- function(x) {
+  x[lower.tri(x)] <- t(x)[lower.tri(t(x))]
+  
+  return(x)
+} 
+
+
+#' generic cosine similarity function
+#' @param x        numeric (vector or matrix)
+#' @param y        if x is numeric vecor, y has to be numeric vector of the same length
+#' @param weights  numeric; weights for weighted or soft cosine similarity
+#' @param complete logical; if FALSE (default) only upper triangle of the similarity matrix is computed
+cosine <- 
+  function(
+    x, 
+    y        = NULL, 
+    weights  = NULL,
+    complete = FALSE
+  ) {
+    
+    if (is.null(y))  {
+      if (is.numeric(x) || is.matrix(x)) {
+        if (is.null(weights)) {
+          out <- wtMCosSimilarity(x,    weights)
+        } else {
+          if (is.matrix(weights)) {
+            out <- sftMCosSimilarity(x, weights)
+          } else {
+            out <- mCosSimilarity(x) 
+          }
+        }
+      } else stop("x must be a numeric matrix!")
+    } else {
+      if (is.numeric(x) && 
+          is.numeric(y) && 
+          is.vector(x)  && 
+          is.vector(y)  &&
+          length(x) == length(y)) 
+      {
+        if (is.null(weights)) {
+          out <- vCosSimilarity(x, y)
+        } else {
+          if (is.matrix(weights)) {
+            out <- sftVCosSimilarity(x, y, weights)
+          } else {
+            out <- wtVCosSimilarity(x, y,  weights)
+          }
+        }
+      } else stop("Both x and y must be a numeric vectors of the same size!")
+    }
+    
+    if (complete) {
+      out <- fromUpperTri(out)
+      diag(out) <- 1
+    }
+    
+    return(out)
+  }
+

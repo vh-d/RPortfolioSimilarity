@@ -1,7 +1,7 @@
 Package: RPortfolioSimilarity
 Type: Package
 Title: R function for portfolio similarity analysis
-Version: 0.3.1
+Version: 0.4
 Date: 2014-07-15
 Author: Vaclav Hausenblas
 Maintainer: Vaclav Hausenblas <vencahaus@seznam.cz>
