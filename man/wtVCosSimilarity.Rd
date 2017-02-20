@@ -19,4 +19,3 @@ Numeric value of cosine similarity
 \description{
 Compute weighted cosine similarity of two numeric vectors
 }
-

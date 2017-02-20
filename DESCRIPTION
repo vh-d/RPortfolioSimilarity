@@ -9,4 +9,4 @@ Description: Usefull function for simulating banks' porfolios and measuring thei
 License: MIT
 Imports: Rcpp (>= 0.11.0)
 LinkingTo: Rcpp
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

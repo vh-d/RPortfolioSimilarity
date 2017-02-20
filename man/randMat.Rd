@@ -9,4 +9,3 @@ randMat(n, k, type = runif, ...)
 \description{
 generate n x k random matrix, generic version
 }
-

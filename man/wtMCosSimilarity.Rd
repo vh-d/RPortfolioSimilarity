@@ -17,4 +17,3 @@ Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th an
 \description{
 Compute weighted cosine similarities for each pair of rows from given matrix and given weights
 }
-

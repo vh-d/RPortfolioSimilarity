@@ -37,7 +37,7 @@ double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w) {
 //'
 //'@param a numeric vector
 //'@param b numeric vector
-//'@param w numeric vector of weights
+//'@param w numeric matrix of weights
 //'@return Numeric value of cosine similarity
 // [[Rcpp::export]]
 double sftVCosSimilarity(NumericVector a, NumericVector b, NumericMatrix weights) {

@@ -12,4 +12,3 @@ upperTMean(inmat, weights = NULL)
 \description{
 \code{upperTMean} computes (weighted) mean on the upper triangle of given numerical matrix.
 }
-

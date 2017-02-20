@@ -15,4 +15,3 @@ Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th an
 \description{
 Compute cosine similarity for every pair of rows from given matrix
 }
-

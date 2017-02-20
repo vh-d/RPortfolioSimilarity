@@ -11,7 +11,7 @@ sftVCosSimilarity(a, b, weights)
 
 \item{b}{numeric vector}
 
-\item{w}{numeric vector of weights}
+\item{w}{numeric matrix of weights}
 }
 \value{
 Numeric value of cosine similarity
@@ -19,4 +19,3 @@ Numeric value of cosine similarity
 \description{
 Compute weighted cosine similarity of two numeric vectors
 }
-

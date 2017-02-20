@@ -18,4 +18,3 @@ cosine(x, y = NULL, weights = NULL, complete = FALSE)
 \description{
 generic cosine similarity function
 }
-

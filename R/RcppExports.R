@@ -64,7 +64,7 @@ wtVCosSimilarity <- function(a, b, w) {
 #'
 #'@param a numeric vector
 #'@param b numeric vector
-#'@param w numeric vector of weights
+#'@param w numeric matrix of weights
 #'@return Numeric value of cosine similarity
 sftVCosSimilarity <- function(a, b, weights) {
     .Call('RPortfolioSimilarity_sftVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, weights)

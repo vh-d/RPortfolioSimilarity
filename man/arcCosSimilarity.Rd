@@ -15,4 +15,3 @@ angular distance
 \description{
 arccos distance transformed to [0;1] scale
 }
-

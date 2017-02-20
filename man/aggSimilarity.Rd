@@ -30,4 +30,3 @@ This is an R version of the function. Using \code{arc=TRUE} returns (weighted) m
 \seealso{
 \code{\link{aggSimilarity_time}}
 }
-

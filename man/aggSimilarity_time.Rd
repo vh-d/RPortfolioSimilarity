@@ -23,4 +23,3 @@ This is an R version of the function.
 \seealso{
 \code{\link{aggSimilarity}}
 }
-

@@ -17,4 +17,3 @@ Numeric value of cosine similarity
 \description{
 Compute cosine similarity of two numeric vectors
 }
-

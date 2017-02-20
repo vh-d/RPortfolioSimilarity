@@ -21,4 +21,3 @@ numeric matrix with the same dimensions and (almost) rows' and columns' sums as 
 \description{
 Generate random variation of a matrix keeping rows and cols sums. Deprecated, use restRandMat().
 }
-
