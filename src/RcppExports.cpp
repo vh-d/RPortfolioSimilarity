@@ -133,3 +133,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"RPortfolioSimilarity_restRandMatUnif", (DL_FUNC) &RPortfolioSimilarity_restRandMatUnif, 2},
+    {"RPortfolioSimilarity_restRandMatLNorm", (DL_FUNC) &RPortfolioSimilarity_restRandMatLNorm, 4},
+    {"RPortfolioSimilarity_restRandMatGamma", (DL_FUNC) &RPortfolioSimilarity_restRandMatGamma, 4},
+    {"RPortfolioSimilarity_restRandMat", (DL_FUNC) &RPortfolioSimilarity_restRandMat, 5},
+    {"RPortfolioSimilarity_vCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_vCosSimilarity, 2},
+    {"RPortfolioSimilarity_wtVCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_wtVCosSimilarity, 3},
+    {"RPortfolioSimilarity_sftVCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_sftVCosSimilarity, 3},
+    {"RPortfolioSimilarity_mCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_mCosSimilarity, 1},
+    {"RPortfolioSimilarity_wtMCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_wtMCosSimilarity, 2},
+    {"RPortfolioSimilarity_sftMCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_sftMCosSimilarity, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_RPortfolioSimilarity(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}

@@ -1,5 +1,4 @@
 #' generate n x k random matrix, generic version
-#' @export
 randMat <- function(n, k, type = runif, ...){
   return(
     matrix(
