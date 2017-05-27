@@ -60,11 +60,18 @@ aggSimilarity_time <- function(portfolios_list, ...) {
   return(sapply(portfolios_list, aggSimilarity, ...))
 }
 
+equal <- function(x, value) {
+  abs(x - value) < sqrt(.Machine$double.eps)
+}
+
 #' arccos distance transformed to [0;1] scale 
 #' @param x cosine similarities of positive vectors (as a vector or matrix)
 #' @return angular distance
 arcCosDist <- function(x) {
-  return(2*acos(x)/pi)
+  ret <- 2*acos(x)/pi
+  ret[equal(x, 1.0)] <- 0 # handle double precision issues
+  
+  return(ret)
 }
 
 #' arccos distance transformed to [0;1] scale 
