@@ -114,7 +114,14 @@ NumericMatrix wtMCosSimilarity(NumericMatrix input_mat, NumericVector weights) {
 //'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 // [[Rcpp::export]]
 NumericMatrix sftMCosSimilarity(NumericMatrix input_mat, NumericMatrix weights) {
-  int n_row = input_mat.nrow();
+  int n_row  = input_mat.nrow();
+  int n_col  = input_mat.ncol();
+  int n_roww = weights.nrow();
+  int n_colw = weights.ncol();
+  
+  if ((n_roww != n_colw) | (n_col != n_roww)) {
+    Rcpp::stop("Dimension mismatch!");
+  }
   
   NumericMatrix new_mat(n_row, n_row);
 
