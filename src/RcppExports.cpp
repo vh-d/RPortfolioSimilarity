@@ -5,6 +5,17 @@
 
 using namespace Rcpp;
 
+// allPairsRcpp
+IntegerMatrix allPairsRcpp(int n);
+RcppExport SEXP RPortfolioSimilarity_allPairsRcpp(SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(allPairsRcpp(n));
+    return rcpp_result_gen;
+END_RCPP
+}
 // restRandMatUnif
 NumericMatrix restRandMatUnif(NumericMatrix original_mat, long int max_iter);
 RcppExport SEXP RPortfolioSimilarity_restRandMatUnif(SEXP original_matSEXP, SEXP max_iterSEXP) {
@@ -135,6 +146,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"RPortfolioSimilarity_allPairsRcpp", (DL_FUNC) &RPortfolioSimilarity_allPairsRcpp, 1},
     {"RPortfolioSimilarity_restRandMatUnif", (DL_FUNC) &RPortfolioSimilarity_restRandMatUnif, 2},
     {"RPortfolioSimilarity_restRandMatLNorm", (DL_FUNC) &RPortfolioSimilarity_restRandMatLNorm, 4},
     {"RPortfolioSimilarity_restRandMatGamma", (DL_FUNC) &RPortfolioSimilarity_restRandMatGamma, 4},
