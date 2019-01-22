@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // allPairsRcpp
 IntegerMatrix allPairsRcpp(int n);
-RcppExport SEXP RPortfolioSimilarity_allPairsRcpp(SEXP nSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_allPairsRcpp(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 // restRandMatUnif
 NumericMatrix restRandMatUnif(NumericMatrix original_mat, long int max_iter);
-RcppExport SEXP RPortfolioSimilarity_restRandMatUnif(SEXP original_matSEXP, SEXP max_iterSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_restRandMatUnif(SEXP original_matSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,7 +30,7 @@ END_RCPP
 }
 // restRandMatLNorm
 NumericMatrix restRandMatLNorm(NumericMatrix original_mat, long int max_iter, double meanl, double sdl);
-RcppExport SEXP RPortfolioSimilarity_restRandMatLNorm(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP meanlSEXP, SEXP sdlSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_restRandMatLNorm(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP meanlSEXP, SEXP sdlSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -44,7 +44,7 @@ END_RCPP
 }
 // restRandMatGamma
 NumericMatrix restRandMatGamma(NumericMatrix original_mat, long int max_iter, double shape, double rate);
-RcppExport SEXP RPortfolioSimilarity_restRandMatGamma(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_restRandMatGamma(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -58,7 +58,7 @@ END_RCPP
 }
 // restRandMat
 NumericMatrix restRandMat(NumericMatrix original_mat, long int max_iter, int type, double par1, double par2);
-RcppExport SEXP RPortfolioSimilarity_restRandMat(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP typeSEXP, SEXP par1SEXP, SEXP par2SEXP) {
+RcppExport SEXP _RPortfolioSimilarity_restRandMat(SEXP original_matSEXP, SEXP max_iterSEXP, SEXP typeSEXP, SEXP par1SEXP, SEXP par2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -73,7 +73,7 @@ END_RCPP
 }
 // vCosSimilarity
 double vCosSimilarity(NumericVector a, NumericVector b);
-RcppExport SEXP RPortfolioSimilarity_vCosSimilarity(SEXP aSEXP, SEXP bSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_vCosSimilarity(SEXP aSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -85,7 +85,7 @@ END_RCPP
 }
 // wtVCosSimilarity
 double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w);
-RcppExport SEXP RPortfolioSimilarity_wtVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP wSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_wtVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP wSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -98,7 +98,7 @@ END_RCPP
 }
 // sftVCosSimilarity
 double sftVCosSimilarity(NumericVector a, NumericVector b, NumericMatrix weights);
-RcppExport SEXP RPortfolioSimilarity_sftVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP weightsSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_sftVCosSimilarity(SEXP aSEXP, SEXP bSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -111,7 +111,7 @@ END_RCPP
 }
 // mCosSimilarity
 NumericMatrix mCosSimilarity(NumericMatrix input_mat);
-RcppExport SEXP RPortfolioSimilarity_mCosSimilarity(SEXP input_matSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_mCosSimilarity(SEXP input_matSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -122,7 +122,7 @@ END_RCPP
 }
 // wtMCosSimilarity
 NumericMatrix wtMCosSimilarity(NumericMatrix input_mat, NumericVector weights);
-RcppExport SEXP RPortfolioSimilarity_wtMCosSimilarity(SEXP input_matSEXP, SEXP weightsSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_wtMCosSimilarity(SEXP input_matSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -134,7 +134,7 @@ END_RCPP
 }
 // sftMCosSimilarity
 NumericMatrix sftMCosSimilarity(NumericMatrix input_mat, NumericMatrix weights);
-RcppExport SEXP RPortfolioSimilarity_sftMCosSimilarity(SEXP input_matSEXP, SEXP weightsSEXP) {
+RcppExport SEXP _RPortfolioSimilarity_sftMCosSimilarity(SEXP input_matSEXP, SEXP weightsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -146,17 +146,17 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"RPortfolioSimilarity_allPairsRcpp", (DL_FUNC) &RPortfolioSimilarity_allPairsRcpp, 1},
-    {"RPortfolioSimilarity_restRandMatUnif", (DL_FUNC) &RPortfolioSimilarity_restRandMatUnif, 2},
-    {"RPortfolioSimilarity_restRandMatLNorm", (DL_FUNC) &RPortfolioSimilarity_restRandMatLNorm, 4},
-    {"RPortfolioSimilarity_restRandMatGamma", (DL_FUNC) &RPortfolioSimilarity_restRandMatGamma, 4},
-    {"RPortfolioSimilarity_restRandMat", (DL_FUNC) &RPortfolioSimilarity_restRandMat, 5},
-    {"RPortfolioSimilarity_vCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_vCosSimilarity, 2},
-    {"RPortfolioSimilarity_wtVCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_wtVCosSimilarity, 3},
-    {"RPortfolioSimilarity_sftVCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_sftVCosSimilarity, 3},
-    {"RPortfolioSimilarity_mCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_mCosSimilarity, 1},
-    {"RPortfolioSimilarity_wtMCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_wtMCosSimilarity, 2},
-    {"RPortfolioSimilarity_sftMCosSimilarity", (DL_FUNC) &RPortfolioSimilarity_sftMCosSimilarity, 2},
+    {"_RPortfolioSimilarity_allPairsRcpp", (DL_FUNC) &_RPortfolioSimilarity_allPairsRcpp, 1},
+    {"_RPortfolioSimilarity_restRandMatUnif", (DL_FUNC) &_RPortfolioSimilarity_restRandMatUnif, 2},
+    {"_RPortfolioSimilarity_restRandMatLNorm", (DL_FUNC) &_RPortfolioSimilarity_restRandMatLNorm, 4},
+    {"_RPortfolioSimilarity_restRandMatGamma", (DL_FUNC) &_RPortfolioSimilarity_restRandMatGamma, 4},
+    {"_RPortfolioSimilarity_restRandMat", (DL_FUNC) &_RPortfolioSimilarity_restRandMat, 5},
+    {"_RPortfolioSimilarity_vCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_vCosSimilarity, 2},
+    {"_RPortfolioSimilarity_wtVCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_wtVCosSimilarity, 3},
+    {"_RPortfolioSimilarity_sftVCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_sftVCosSimilarity, 3},
+    {"_RPortfolioSimilarity_mCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_mCosSimilarity, 1},
+    {"_RPortfolioSimilarity_wtMCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_wtMCosSimilarity, 2},
+    {"_RPortfolioSimilarity_sftMCosSimilarity", (DL_FUNC) &_RPortfolioSimilarity_sftMCosSimilarity, 2},
     {NULL, NULL, 0}
 };
 

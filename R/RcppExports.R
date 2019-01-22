@@ -7,7 +7,7 @@
 #' @param n maximum number of the sequence
 #' @return \code{allPairsRcpp} returns (n*(n-1)/2) x 2 integer matrix all unique combinations (pairs) of numbers from a sequence of integers 1..n 
 allPairsRcpp <- function(n) {
-    .Call('RPortfolioSimilarity_allPairsRcpp', PACKAGE = 'RPortfolioSimilarity', n)
+    .Call('_RPortfolioSimilarity_allPairsRcpp', PACKAGE = 'RPortfolioSimilarity', n)
 }
 
 #' Generate random variation of a matrix keeping rows and cols sums. Deprecated, use restRandMat().
@@ -16,7 +16,7 @@ allPairsRcpp <- function(n) {
 #'@param max_iter maximum number of iterations when coverging to the rows and cols sums
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 restRandMatUnif <- function(original_mat, max_iter) {
-    .Call('RPortfolioSimilarity_restRandMatUnif', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
+    .Call('_RPortfolioSimilarity_restRandMatUnif', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter)
 }
 
 #' Generate random variation of a matrix keeping rows and cols sums. Deprecated, use restRandMat().
@@ -27,7 +27,7 @@ restRandMatUnif <- function(original_mat, max_iter) {
 #'@param sdl parameter of the log-normal distribution
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 restRandMatLNorm <- function(original_mat, max_iter, meanl = 0, sdl = 1) {
-    .Call('RPortfolioSimilarity_restRandMatLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, meanl, sdl)
+    .Call('_RPortfolioSimilarity_restRandMatLNorm', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, meanl, sdl)
 }
 
 #' Generate random variation of a matrix keeping rows and cols sums. Deprecated, use restRandMat().
@@ -38,7 +38,7 @@ restRandMatLNorm <- function(original_mat, max_iter, meanl = 0, sdl = 1) {
 #'@param rate parameter of the gamma distribution
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 restRandMatGamma <- function(original_mat, max_iter, shape, rate = 1.0) {
-    .Call('RPortfolioSimilarity_restRandMatGamma', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, shape, rate)
+    .Call('_RPortfolioSimilarity_restRandMatGamma', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, shape, rate)
 }
 
 #' Generate random variation of a matrix keeping rows and cols sums
@@ -47,7 +47,7 @@ restRandMatGamma <- function(original_mat, max_iter, shape, rate = 1.0) {
 #'@param max_iter maximum number of iterations when coverging to the rows and cols sums
 #'@return numeric matrix with the same dimensions and (almost) rows' and columns' sums as the input matrix
 restRandMat <- function(original_mat, max_iter, type, par1 = 1.0, par2 = 1.0) {
-    .Call('RPortfolioSimilarity_restRandMat', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, type, par1, par2)
+    .Call('_RPortfolioSimilarity_restRandMat', PACKAGE = 'RPortfolioSimilarity', original_mat, max_iter, type, par1, par2)
 }
 
 #' Compute cosine similarity of two numeric vectors
@@ -56,7 +56,7 @@ restRandMat <- function(original_mat, max_iter, type, par1 = 1.0, par2 = 1.0) {
 #'@param b numeric vector
 #'@return Numeric value of cosine similarity
 vCosSimilarity <- function(a, b) {
-    .Call('RPortfolioSimilarity_vCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
+    .Call('_RPortfolioSimilarity_vCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
 }
 
 #' Compute weighted cosine similarity of two numeric vectors
@@ -66,7 +66,7 @@ vCosSimilarity <- function(a, b) {
 #'@param w numeric vector of weights
 #'@return Numeric value of cosine similarity
 wtVCosSimilarity <- function(a, b, w) {
-    .Call('RPortfolioSimilarity_wtVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, w)
+    .Call('_RPortfolioSimilarity_wtVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, w)
 }
 
 #' Compute weighted cosine similarity of two numeric vectors
@@ -76,7 +76,7 @@ wtVCosSimilarity <- function(a, b, w) {
 #'@param w numeric matrix of weights
 #'@return Numeric value of cosine similarity
 sftVCosSimilarity <- function(a, b, weights) {
-    .Call('RPortfolioSimilarity_sftVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, weights)
+    .Call('_RPortfolioSimilarity_sftVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, weights)
 }
 
 #' Compute cosine similarity for every pair of rows from given matrix
@@ -84,7 +84,7 @@ sftVCosSimilarity <- function(a, b, weights) {
 #'@param input_mat numeric input matrix
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 mCosSimilarity <- function(input_mat) {
-    .Call('RPortfolioSimilarity_mCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
+    .Call('_RPortfolioSimilarity_mCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
 }
 
 #' Compute weighted cosine similarities for each pair of rows from given matrix and given weights
@@ -93,7 +93,7 @@ mCosSimilarity <- function(input_mat) {
 #'@param weights numeric vector of weights
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 wtMCosSimilarity <- function(input_mat, weights) {
-    .Call('RPortfolioSimilarity_wtMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
+    .Call('_RPortfolioSimilarity_wtMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
 }
 
 #' Compute soft cosine similarities for each pair of rows from given matrix and given weights
@@ -102,6 +102,6 @@ wtMCosSimilarity <- function(input_mat, weights) {
 #'@param weights numeric vector of weights
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 sftMCosSimilarity <- function(input_mat, weights) {
-    .Call('RPortfolioSimilarity_sftMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
+    .Call('_RPortfolioSimilarity_sftMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
 }
 

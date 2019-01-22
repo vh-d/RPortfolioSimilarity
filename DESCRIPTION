@@ -1,12 +1,13 @@
 Package: RPortfolioSimilarity
 Type: Package
-Title: R function for portfolio similarity analysis
+Title: Tools for clustering portfolios based on cosine similarity
 Version: 0.4.2
 Date: 2014-07-15
 Author: Vaclav Hausenblas
 Maintainer: Vaclav Hausenblas <vencahaus@seznam.cz>
-Description: Usefull function for simulating banks' porfolios and measuring their similarity
+Description: Toolbox for simulating financial portfolios, measuring their similarity and clustering analysis based cosine similarity
 License: MIT
+Encoding: UTF-8
 Imports: Rcpp (>= 0.11.0)
 LinkingTo: Rcpp
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
