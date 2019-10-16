@@ -1,3 +1,4 @@
+#' All possible pairs of values from a vector 
 #' @rdname allPairs
 #' @return \code{allPairs} returns (n*(n-1)/2) x 2 matrix all combinations (pairs) of values from vector \code{x} 
 #' @export

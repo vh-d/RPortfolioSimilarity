@@ -2,7 +2,7 @@
 % Please edit documentation in R/similarity.R
 \name{aggSimilarity_time}
 \alias{aggSimilarity_time}
-\title{Aggregate similarities of banking porfolios on a list}
+\title{Aggregate similarity applied to a list}
 \usage{
 aggSimilarity_time(portfolios_list, ...)
 }
@@ -12,13 +12,10 @@ aggSimilarity_time(portfolios_list, ...)
 \item{...}{other archments past to \code{\link{aggSimilarity}}}
 }
 \value{
-a numeric vector.
+A numeric vector of the same lenght as input.
 }
 \description{
-\code{aggSimilarity_time} computes aggregate similarities for a given list of banks' portfolios
-}
-\details{
-This is an R version of the function.
+\code{aggSimilarity_time} computes aggregate similarities for a given list of portfolios
 }
 \seealso{
 \code{\link{aggSimilarity}}

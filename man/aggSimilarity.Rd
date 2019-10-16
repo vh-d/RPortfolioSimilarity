@@ -2,7 +2,7 @@
 % Please edit documentation in R/similarity.R
 \name{aggSimilarity}
 \alias{aggSimilarity}
-\title{Aggregate similarity of banking porfolios.}
+\title{Aggregate similarity}
 \usage{
 aggSimilarity(porftolios, simM = NULL, weights = NULL, rw = NULL,
   arc = FALSE)
@@ -19,13 +19,13 @@ aggSimilarity(porftolios, simM = NULL, weights = NULL, rw = NULL,
 \item{portfolios}{a (n x k) matrix of portfolios where rows represent n subjects and columns their portfolios}
 }
 \value{
-a numeric value of (weighted) mean similarity.
+A numeric scalar value of (weighted) mean of the upper traingle of similarity matrix is returned.
 }
 \description{
-\code{aggSimilarity} computes aggregate similarity of banks' portfolios.
+\code{aggSimilarity} computes aggregate similarity
 }
 \details{
-This is an R version of the function. Using \code{arc=TRUE} returns (weighted) mean of 1-(2*arccos(cos(similarity))/pi)
+Using \code{arc=TRUE} returns (weighted) mean of 1-(2*arccos(cos(similarity))/pi)
 }
 \seealso{
 \code{\link{aggSimilarity_time}}

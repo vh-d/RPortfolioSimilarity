@@ -54,7 +54,10 @@ restRandMat <- function(original_mat, max_iter, type, par1 = 1.0, par2 = 1.0) {
 #'
 #'@param a numeric vector
 #'@param b numeric vector
-#'@return Numeric value of cosine similarity
+#'@details
+#'\code{a} and \code{b} are expected to have the same length.
+#'\deqn{\sum(a*b)/\sqrt(\sum(a^2)\sum(b^2))}
+#'@return Numeric value.
 vCosSimilarity <- function(a, b) {
     .Call('_RPortfolioSimilarity_vCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b)
 }
@@ -64,16 +67,23 @@ vCosSimilarity <- function(a, b) {
 #'@param a numeric vector
 #'@param b numeric vector
 #'@param w numeric vector of weights
+#'@details
+#'\code{a}, \code{b} and \code{c} are expected to have the same length.
+#'\deqn{\sum(a*b*w)/\sqrt\sum(w*a^2)\sqrt\sum(w*b^2)}
 #'@return Numeric value of cosine similarity
 wtVCosSimilarity <- function(a, b, w) {
     .Call('_RPortfolioSimilarity_wtVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, w)
 }
 
-#' Compute weighted cosine similarity of two numeric vectors
+#' Compute soft weighted cosine similarity of two numeric vectors
 #'
 #'@param a numeric vector
 #'@param b numeric vector
 #'@param w numeric matrix of weights
+#'
+#'@details
+#'\code{a}, \code{b} and \code{c} are expected to have the same length.
+#'Soft cosine similarity allows accounting for (cor)relations between features. 
 #'@return Numeric value of cosine similarity
 sftVCosSimilarity <- function(a, b, weights) {
     .Call('_RPortfolioSimilarity_sftVCosSimilarity', PACKAGE = 'RPortfolioSimilarity', a, b, weights)
@@ -83,6 +93,7 @@ sftVCosSimilarity <- function(a, b, weights) {
 #'
 #'@param input_mat numeric input matrix
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
+#'@seealso \code{\link{vCosSimilarity}}
 mCosSimilarity <- function(input_mat) {
     .Call('_RPortfolioSimilarity_mCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat)
 }
@@ -91,7 +102,10 @@ mCosSimilarity <- function(input_mat) {
 #'
 #'@param input_mat numeric input matrix
 #'@param weights numeric vector of weights
+#'@details
+#'\link{wtVCosSimilarity}
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
+#'@seealso \code{\link{wtVCosSimilarity}}
 wtMCosSimilarity <- function(input_mat, weights) {
     .Call('_RPortfolioSimilarity_wtMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)
 }
@@ -100,6 +114,8 @@ wtMCosSimilarity <- function(input_mat, weights) {
 #'
 #'@param input_mat numeric input matrix
 #'@param weights numeric vector of weights
+#'@details
+#'Soft cosine similarity allows accounting for (cor)relations between features. 
 #'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 sftMCosSimilarity <- function(input_mat, weights) {
     .Call('_RPortfolioSimilarity_sftMCosSimilarity', PACKAGE = 'RPortfolioSimilarity', input_mat, weights)

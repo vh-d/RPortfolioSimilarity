@@ -10,16 +10,16 @@ upperTMean <- function(inmat, weights = NULL){
   }
 }
 
-#' Aggregate similarity of banking porfolios.
+#' Aggregate similarity
 #'
-#' \code{aggSimilarity} computes aggregate similarity of banks' portfolios.
+#' \code{aggSimilarity} computes aggregate similarity
 #' @param portfolios a (n x k) matrix of portfolios where rows represent n subjects and columns their portfolios
 #' @param simM an optional (n x n) similarity matrix
 #' @param weights a (n x n) matrix of weights for weghting matrix to an average
 #' @param rw (1 x k) vector of weights on sectors
 #' @param arc logical; should the cosine similarities be transformed to radians (by arccos) first?
-#' @details This is an R version of the function. Using \code{arc=TRUE} returns (weighted) mean of 1-(2*arccos(cos(similarity))/pi)
-#' @return a numeric value of (weighted) mean similarity.
+#' @details Using \code{arc=TRUE} returns (weighted) mean of 1-(2*arccos(cos(similarity))/pi)
+#' @return A numeric scalar value of (weighted) mean of the upper traingle of similarity matrix is returned.
 #' @seealso \code{\link{aggSimilarity_time}}
 aggSimilarity <- function(
   porftolios, 
@@ -48,13 +48,12 @@ aggSimilarity <- function(
 }
 
 
-#' Aggregate similarities of banking porfolios on a list
+#' Aggregate similarity applied to a list
 #'
-#' \code{aggSimilarity_time} computes aggregate similarities for a given list of banks' portfolios 
+#' \code{aggSimilarity_time} computes aggregate similarities for a given list of portfolios 
 #' @param portfolios_list a list of portfolio matrices where rows represent n subjects and columns their portfolios
 #' @param ... other archments past to \code{\link{aggSimilarity}}
-#' @details This is an R version of the function.
-#' @return a numeric vector.
+#' @return A numeric vector of the same lenght as input.
 #' @seealso \code{\link{aggSimilarity}}
 aggSimilarity_time <- function(portfolios_list, ...) {
   return(sapply(portfolios_list, aggSimilarity, ...))

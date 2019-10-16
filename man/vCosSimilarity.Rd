@@ -12,8 +12,12 @@ vCosSimilarity(a, b)
 \item{b}{numeric vector}
 }
 \value{
-Numeric value of cosine similarity
+Numeric value.
 }
 \description{
 Compute cosine similarity of two numeric vectors
+}
+\details{
+\code{a} and \code{b} are expected to have the same length.
+\deqn{\sum(a*b)/\sqrt(\sum(a^2)\sum(b^2))}
 }

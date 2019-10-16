@@ -19,3 +19,7 @@ Numeric value of cosine similarity
 \description{
 Compute weighted cosine similarity of two numeric vectors
 }
+\details{
+\code{a}, \code{b} and \code{c} are expected to have the same length.
+\deqn{\sum(a*b*w)/\sqrt\sum(w*a^2)\sqrt\sum(w*b^2)}
+}

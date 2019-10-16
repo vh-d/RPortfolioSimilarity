@@ -5,7 +5,10 @@ using namespace Rcpp;
 //'
 //'@param a numeric vector
 //'@param b numeric vector
-//'@return Numeric value of cosine similarity
+//'@details
+//'\code{a} and \code{b} are expected to have the same length.
+//'\deqn{\sum(a*b)/\sqrt(\sum(a^2)\sum(b^2))}
+//'@return Numeric value.
 // [[Rcpp::export]]
 double vCosSimilarity(NumericVector a, NumericVector b) {
   double sA, sB, sI;
@@ -21,6 +24,9 @@ double vCosSimilarity(NumericVector a, NumericVector b) {
 //'@param a numeric vector
 //'@param b numeric vector
 //'@param w numeric vector of weights
+//'@details
+//'\code{a}, \code{b} and \code{c} are expected to have the same length.
+//'\deqn{\sum(a*b*w)/\sqrt\sum(w*a^2)\sqrt\sum(w*b^2)}
 //'@return Numeric value of cosine similarity
 // [[Rcpp::export]]
 double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w) {
@@ -33,11 +39,15 @@ double wtVCosSimilarity(NumericVector a, NumericVector b, NumericVector w) {
 }
 
 
-//' Compute weighted cosine similarity of two numeric vectors
+//' Compute soft weighted cosine similarity of two numeric vectors
 //'
 //'@param a numeric vector
 //'@param b numeric vector
 //'@param w numeric matrix of weights
+//'
+//'@details
+//'\code{a}, \code{b} and \code{c} are expected to have the same length.
+//'Soft cosine similarity allows accounting for (cor)relations between features. 
 //'@return Numeric value of cosine similarity
 // [[Rcpp::export]]
 double sftVCosSimilarity(NumericVector a, NumericVector b, NumericMatrix weights) {
@@ -72,6 +82,7 @@ double sftVCosSimilarity(NumericVector a, NumericVector b, NumericMatrix weights
 //'
 //'@param input_mat numeric input matrix
 //'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
+//'@seealso \code{\link{vCosSimilarity}}
 // [[Rcpp::export]]
 NumericMatrix mCosSimilarity(NumericMatrix input_mat) {
   int n_row = input_mat.nrow();
@@ -91,7 +102,10 @@ NumericMatrix mCosSimilarity(NumericMatrix input_mat) {
 //'
 //'@param input_mat numeric input matrix
 //'@param weights numeric vector of weights
+//'@details
+//'\link{wtVCosSimilarity}
 //'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
+//'@seealso \code{\link{wtVCosSimilarity}}
 // [[Rcpp::export]]
 NumericMatrix wtMCosSimilarity(NumericMatrix input_mat, NumericVector weights) {
   int n_row = input_mat.nrow();
@@ -111,6 +125,8 @@ NumericMatrix wtMCosSimilarity(NumericMatrix input_mat, NumericVector weights) {
 //'
 //'@param input_mat numeric input matrix
 //'@param weights numeric vector of weights
+//'@details
+//'Soft cosine similarity allows accounting for (cor)relations between features. 
 //'@return Upper triangle matrix where \{i, j\} element is the cosine similarity of i-th and j-th row of the original matrix.
 // [[Rcpp::export]]
 NumericMatrix sftMCosSimilarity(NumericMatrix input_mat, NumericMatrix weights) {

@@ -19,4 +19,6 @@ allPairs(x, unique = TRUE)
 }
 \description{
 Generate all possible pairs from a vector or a sequence of integer numbers
+
+All possible pairs of values from a vector
 }

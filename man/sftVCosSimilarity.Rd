@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{sftVCosSimilarity}
 \alias{sftVCosSimilarity}
-\title{Compute weighted cosine similarity of two numeric vectors}
+\title{Compute soft weighted cosine similarity of two numeric vectors}
 \usage{
 sftVCosSimilarity(a, b, weights)
 }
@@ -17,5 +17,9 @@ sftVCosSimilarity(a, b, weights)
 Numeric value of cosine similarity
 }
 \description{
-Compute weighted cosine similarity of two numeric vectors
+Compute soft weighted cosine similarity of two numeric vectors
+}
+\details{
+\code{a}, \code{b} and \code{c} are expected to have the same length.
+Soft cosine similarity allows accounting for (cor)relations between features.
 }
